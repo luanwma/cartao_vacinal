@@ -1,0 +1,458 @@
+html, body {
+    
+    
+    max-width: 2880px;
+  
+    max-height: 2048px; 
+    height: fit-content;
+    font-family: 'Averia Libre';
+    margin: auto;
+   
+    /*background-color: #ADD5D0; 
+    
+    background-repeat: no-repeat; */
+    
+    background-size: auto; 
+    background-color:#ADD5D0;
+    
+    
+}
+
+
+
+.container{
+    
+    display: flex; 
+    background-color: #8FE1D9;
+    font-family: 'Averia Libre';
+    align-items: center; 
+   
+    height: 87px;
+    /*align-self: center;*/
+   /* align-content: flex-start; */
+       
+
+}
+
+.logo{
+    margin-left: 30px;
+    width: 51px;
+    height: 51px;
+}
+.nome_logo{
+    color: #419ED7;
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    align-self: center;
+    
+   
+    height: 57px;
+   
+    left: 20px;
+    
+     
+
+    font-family: 'Averia Libre';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 48px;
+    line-height: 57.28px;
+    
+}
+
+.form{
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    
+    max-height: 1946px;
+    max-width: fit-content;
+    padding-top: 148px;
+    padding-left: 302px;
+    padding-right: 180px;
+    padding-bottom: 100px;
+   /* align-items: center;
+    justify-content: center; */
+    align-items: flex-start;
+    justify-items: center;
+   
+
+}
+
+
+.formulario{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center; 
+
+
+}
+.rotulos{
+    display: flex;
+    flex-direction: column;
+    font-size: 36px;
+ 
+    margin-bottom: 30px;
+}
+.input-label {
+    font-size: 36px;
+    margin-bottom: 30px;
+    
+
+    color: #FFFFFF;
+    text-align: right; 
+    
+}
+.inputs_texts{
+    display: flex;
+    flex-direction: column;
+    font-size: 36px;
+    align-items: flex-start;
+    justify-self: start; 
+    
+}
+
+
+.div_btnCadastrar{
+    display: flex;
+    flex-direction: row;
+    align-self: center;
+    margin-top: 66px;
+
+}
+
+.btn_cadastrar{
+   
+    background-color: #49B976;
+    width: fit-content;
+    border-radius: 20px;
+    font-family: 'Averia Libre';
+    padding: 10px;
+    color: #FFFFFF;
+    font-size: 24px;
+    border-style: solid 2px ;
+    stroke: #37BD6D;
+   
+    cursor: pointer;
+   
+    
+
+}
+
+
+
+
+/*
+ .form{  
+    width: fit-content;
+    height: fit-content;
+    position:absolute;
+    display:flex;
+    flex-direction: column;
+    font-size: 60px;
+    top: 35%;
+    left: 30%;
+   /* background-color: #FFFFFF;*/
+   /* align-items: center;
+
+
+    
+} 
+
+.formulario {
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    position: relative;
+    align-items: center;
+   
+   /* background-color: var(--verde); */
+	/*color: var(--branco-principal); */
+  /*  overflow-x: hidden;
+    padding-right: 20px;
+	padding-left: 20px;
+    padding-bottom: 20px;
+    padding-top: 20px;
+   
+    
+    
+   
+    width: fit-content;
+    /*background-color: black; */
+ 
+    /*
+} 
+.rotulos{
+    font-size: 60px;
+    margin: 5px;
+    
+    color: #FFFFFF;
+    text-align: justify;
+    display: flex;
+    flex-direction: column;
+    align-items:flex-end;
+}
+.inputs_texts{
+    font-size: 60px;
+    margin: 5px;
+    
+    color: #FFFFFF;
+    text-align: justify;
+    display: flex;
+    flex-direction: column;
+}
+/*
+#nome.placeholder{
+    font-size: 60px;
+
+
+}
+*/
+/*
+.barra_pesquisar{
+    display: flex;
+    width: 96%;
+    margin-left: 2%;
+    margin-top: 40px;
+    height: 50px;
+    font-size: 40px;
+} */
+/*
+.botao_footer{
+    background-color: #49B976;
+    border-radius: 50px;
+    padding: 15px;
+    color: #FFFFFF;
+    font-size: 30px;
+    border-style: solid 2px var(#37BD6D);
+    width: max-content;
+    cursor: pointer;
+}
+.btn_novaVacina{
+    position:relative;
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 100%;
+}
+
+*/
+
+#nome{
+    height: 51px;
+    font-family: 'Averia Libre';
+    font-size: 36px;
+ 
+    color: #3F92C5;
+    width: 585px;
+    margin-bottom: 25px;
+    margin-top: -25px;
+    margin-left: 15px;
+}
+ 
+.radios{
+   
+    display: flex;
+    flex-direction: row;
+    width: fit-content;
+    height: fit-content;
+    font-size: 36px;
+    color: #3F92C5;
+    margin-bottom: 18px;
+    margin-top: -20px;
+    margin-left: 15px;
+    
+    
+}
+#sexoM{
+    width: 27px;
+}
+#sexoF{
+    width: 27px;
+}
+#data_nasc{
+    height: 51px;
+    font-family: 'Averia Libre';
+    font-size: 36px;
+    color: #3F92C5;
+    width: 585px;
+    margin-bottom: 25px;
+    margin-left: 15px;
+}
+
+
+
+#email {
+    height: 51px;
+    font-family: 'Averia Libre';
+    font-size: 36px;
+    color: #3F92C5;
+    width: 585px;
+    margin-bottom: 30px;
+    margin-top: -10px;
+    margin-left: 15px;
+}
+#senha{
+    height: 51px;
+    font-family: 'Averia Libre';
+    font-size: 36px;
+    color: #3F92C5;
+    width: 585px;
+    margin-bottom: 30px;
+    margin-top: -10px;
+    margin-left: 15px;
+}
+#repetsenha{
+    height: 51px;
+    font-family: 'Averia Libre';
+    font-size: 36px;
+    color: #3F92C5;
+    width: 585px;
+    margin-bottom: 30px;
+    margin-top: -10px;
+    margin-left: 15px;
+
+}
+/*.text_inputs{
+    display: flex;
+    flex-direction: row;
+    height: fit-content;
+    width: fit-content;
+    font-size: 36px;
+    margin: 5px;
+    
+} */
+
+
+
+/*
+#nome {
+    width: 585px;
+    margin-top: -25px;
+    font-size: 45px;
+    
+    color: #3F92C5;
+}
+
+#email {
+    width: 585px;
+ 
+    font-size: 45px;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    color: #3F92C5;
+}
+
+#senha {
+    width: 585px;
+   
+    font-size: 43px;
+    margin-top: 10px;
+    color: #3F92C5;
+}
+#repetsenha {
+    width: 585px;
+   
+    font-size: 43px;
+    margin-top: 10px;
+    margin-bottom: -25px;
+    color: #3F92C5;
+
+}
+#data_nasc{
+    width: 300px;
+    
+    font-size: 45px;
+    margin-top: 15px;
+    margin-bottom: 5px;
+    color: #3F92C5;
+
+
+}
+
+#sexoM{
+    font-size: 45px;
+}
+/*
+.div_btnCadastrar{
+   
+    display: flex;
+    
+    flex-direction: row;
+
+
+}
+.btn_cadastrar{
+    background-color: #3F92C5;
+    width: fit-content;
+    height: fit-content;
+    border-radius: 50px;
+    font-family: 'Averia Libre';
+    padding: 20px;
+    color: #FFFFFF;
+    font-size: 40px;
+    border-style: solid 2px ;
+    stroke: #37BD6D;
+   
+    cursor: pointer;
+}
+
+
+/*
+.div_btnCadastrar{
+    background-color: #3F92C5;
+    position:relative;
+    display: flex;
+
+    flex-direction: row;
+    
+    margin-left: 42%;
+    justify-content: center;
+    
+    width: fit-content;
+    
+    height:fit-content;
+
+    justify-content: center;
+    justify-items: center;
+    align-items: center;
+    align-content: center;
+    
+
+    
+  /*  display: flex;   
+   /* flex-direction: row;
+    
+    /*position:relative;
+    
+    
+   /* align-items: flex-end;
+    justify-items: flex-end;
+    */
+/*}
+.btn_cadastrar{
+    align-items: center;
+    justify-content: center;
+    background-color: #49B976;
+    width: fit-content;
+    border-radius: 50px;
+    font-family: 'Averia Libre';
+    padding: 20px;
+    color: #FFFFFF;
+    font-size: 40px;
+    border-style: solid 2px ;
+    stroke: #37BD6D;
+   
+    cursor: pointer;
+    
+    justify-content: center;
+    justify-items: center;
+    align-items: center;
+    align-content: center;
+
+} */
+
+
+

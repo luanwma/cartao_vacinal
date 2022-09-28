@@ -1,0 +1,192 @@
+html, body {
+    margin: auto;
+    max-width: 2880px;
+    
+    max-height: 2048px;
+    font-family: 'Averia Libre';
+    background-color:#ADD5D0;
+    
+
+    
+    
+}
+
+
+
+
+.container{
+    display: flex; 
+    background-color: #8FE1D9;
+    align-items: center; 
+    height: 87px;
+    width: 2880px
+    
+    /*align-self: center;*/
+   /* align-content: flex-start; */
+       
+
+}
+.logo{
+    margin-left: 30px;
+    width: 51px;
+    height: 51px;
+}
+.nome_logo{
+    color: #419ED7;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-self: center;
+   
+   
+    height: 57px;
+    margin-left: 16px;
+   
+    
+     
+
+    font-family: 'Averia Libre';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 48px;
+    line-height: 57.28px;
+    
+}
+
+
+.form{
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    
+    max-height: 1946px;
+    max-width: fit-content;
+    padding-top: 358px;
+    padding-left: 336px;
+    padding-right: 180px;
+    padding-bottom: 100px;
+   /* align-items: center;
+    justify-content: center; */
+    align-items: flex-start;
+    justify-items: center;
+   
+
+}
+
+
+.formulario{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center; 
+
+
+
+
+    
+
+}
+.rotulos{
+    display: flex;
+    flex-direction: column;
+    font-size: 36px;
+ 
+    margin-bottom: 30px;
+}
+.input-label {
+    font-size: 36px;
+    margin-bottom: 30px;
+    
+
+    color: #FFFFFF;
+    text-align: right; 
+    
+}
+.inputs{
+    display: flex;
+    flex-direction: column;
+    font-size: 36px;
+    align-items: flex-start;
+    justify-self: start; 
+    
+}
+.divErroEmailSenha{
+    display: flex;
+    flex-direction: column;
+    font-size: 36px;
+    align-self: center;
+   
+}
+
+.erroEmailSenha{
+    font-size: 24px;
+    margin-bottom: 47px;
+    
+
+    color: #FD7979;
+    text-align: center; 
+    
+    visibility: hidden; 
+}
+
+
+.div_btnEntrar{
+    display: flex;
+    flex-direction: row;
+    align-self: center;
+    
+    text-decoration: none;
+}
+.btn_entrar{
+    background-color: #49B976;
+    width: fit-content;
+    border-radius: 20px;
+    font-family: 'Averia Libre';
+    padding: 10px;
+    color: #FFFFFF;
+    font-size: 24px;
+    border-style: solid 2px ;
+    stroke: #37BD6D;
+   
+    cursor: pointer;
+}
+
+.divRecuperarSenha{
+    display: flex;
+    flex-direction: column;
+    font-size: 24px;
+    align-self: center;
+    margin-top: 145px;
+}
+
+#recuperaSenha{
+    font-size: 24px;
+    font-family: 'Averia Libre';
+    font-style: normal;
+    font-weight: 400;
+    color: #419ED7;
+
+}
+
+
+
+#email {
+    height: 51px;
+    font-family: 'Averia Libre';
+    font-size: 36px;
+    color: #3F92C5;
+    width: 585px;
+    margin-bottom: 30px;
+    margin-top: -10px;
+    margin-left: 15px;
+}
+#senha{
+    height: 51px;
+    font-family: 'Averia Libre';
+    font-size: 36px;
+    color: #3F92C5;
+    width: 585px;
+    margin-bottom: 30px;
+    margin-top: -10px;
+    margin-left: 15px;
+}

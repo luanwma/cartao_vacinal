@@ -1,0 +1,154 @@
+html {
+    margin: auto;
+    max-width: 2880px;
+    max-height: 2048px; 
+    margin: auto;
+   
+    font-family: 'Averia Libre';
+   
+    /*background-color: #ADD5D0; 
+    
+    background-repeat: no-repeat;
+    
+    background-size: auto; */
+
+    
+    
+}
+body{
+    
+    background-color:#ADD5D0;
+    
+    width: 2880px;
+  
+
+}
+
+
+.container{
+    
+    display: flex; 
+    background-color: #8FE1D9;
+    align-items: center; 
+    height: 87px;
+    width: 2880px
+    /*align-self: center;*/
+   /* align-content: flex-start; */
+       
+
+}
+
+.logo{
+    margin-left: 30px;
+    width: 51px;
+    height: 51px;
+}
+.nome_logo{
+    color: #419ED7;
+    position: relative;
+    display: flex;
+    flex-direction: row;
+   
+    align-items: center;
+   
+    height: 57px;
+    left: 20px;
+     
+
+    font-family: 'Averia Libre';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 48px;
+    line-height: 57.28px;
+    
+}
+
+.div_botao{
+    display: flex;
+    flex-direction: row;
+    position:relative;
+    justify-self: center;
+    margin-left: 76%;
+}
+
+
+.botao{
+    font-family: 'Averia Libre';    
+    background-color: #419ED7;
+    border-radius: 10px;
+    
+    padding: 15px;
+    color: #FFFFFF;
+    font-size: 24px;
+    border-style: solid 2px var(blue);
+    text-align: center;
+
+   
+    cursor: pointer;
+
+
+}
+
+.botao_myVacine{
+         
+    
+    margin-left: 67%;
+    
+}
+.btn_logout{
+    margin-left: 110px;
+}
+
+.texto_index_geral{
+    position:relative;
+    display:flex;
+    justify-content: center;
+    align-items: center;
+  
+   
+}
+
+.barra_pesquisar{
+    display: flex;
+    width: 96%;
+    font-family: 'Averia Libre';
+    font-style: normal;
+    font-weight: 400;
+
+    margin-left: 2%;
+    margin-top: 113px;
+    height: 40px;
+    font-size: 24px;
+}
+
+
+.btn_novaVacina{
+    
+
+
+
+
+    padding: 20px;
+    position:relative;
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 30%; 
+}
+
+.botao_footer{
+   
+    
+    
+    
+    background-color: #49B976;
+    border-radius: 10px;
+    padding: 10px;
+    color: #FFFFFF;
+    font-size: 24px;
+   
+    width: max-content;
+    height: max-content;
+    font-family: 'Averia Libre';
+    cursor: pointer;  
+}
