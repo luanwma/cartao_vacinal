@@ -1,79 +1,47 @@
-/*.wrapper{
-    max-width: 2880px;
-    width: 100%;
-    margin: 0 auto;
-}*/
 
 
+*{
+    margin: 0;
+    padding: 0;
+}
 
-html , body{
-    margin:  auto;
-    max-width: 2880px;
-    width: 2880px;
-    height: 2048px;
+body{
     background-color:#ADD5D0;
     background-image: url(../imagens/background_index.png);
+    height: 100vh;
 
     background-repeat: no-repeat;
-    
-    background-size: 2880px, 2048px;
+    background-size: cover;
     font-family: 'Averia Libre';
-    
-    
-}
-img{
-    opacity: 0.5;
 }
 
 .container{
-    font-family: 'Averia Libre';
-    display: flex; 
-    background-color: #8FE1D9;
-    align-items: center; 
-    justify-items: center;
-    align-content: center;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
     height: 87px;
-    
-    /*align-self: center;*/
-   /* align-content: flex-start; */
-       
-
+    background-color: #8FE1D9;
+    align-items: center;
+   
 }
-.logo{
+#logo{
     margin-left: 30px;
     width: 51px;
     height: 51px;
+    margin-right: 10px;
 }
-.nome_logo{
+#nome_logo{
     color: #419ED7;
-    position: relative;
-    display: flex;
-    flex-direction: column;
-    align-self: center;
-   
-   
-    height: 57px;
-    margin-left: 16px;
-   
-    
-     
-
     font-family: 'Averia Libre';
     font-style: normal;
     font-weight: 400;
     font-size: 48px;
-    line-height: 57.28px;
+  
     
 }
-
-
-.div_botao{
+.classLogo{
     display: flex;
     flex-direction: row;
-    position:relative;
-    justify-self: center;
-    margin-left: 76%;
-   
 
 }
 
@@ -95,35 +63,36 @@ img{
     
 }
 
-
-
-.texto_index_geral{
-    display:flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    
-    height: 1946px;
-
-}
-.div_textoIndex{
+.corpoBody{
+    height: 100%;
     display: flex;
     flex-direction: column;
+    align-items: center;
+    justify-content: center;
 
 }
-.texto_index{
+#contentBody{
+    display: flex;
+    flex-direction: column;
+    
+    align-items: center;
+    
+    
+
+}
+.textoBody{
+    
+    width: 800px;
+    
     text-align: center;
     font-family: 'Averia Libre';
     font-style: normal;
     font-size: 64px;
     color: #419ED7;
 }
-.div_btnCriar{
-    display: flex;
-    flex-direction: column;
-
-}
-.btn_criar_conta{
+.botaoAzul{
+     
+   
     width: fit-content;
     padding: 15px;
     background-color:  #419ED7;
@@ -135,3 +104,4 @@ img{
     text-align: center;
     cursor: pointer;
 }
+
