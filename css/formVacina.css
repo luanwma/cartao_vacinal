@@ -1,0 +1,134 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+
+
+.corpoBody{
+    height: 100%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    
+    text-align: center;
+    font-family: 'Averia Libre';
+    font-style: normal;
+    font-size: 36px;
+    color: #419ED7;
+    
+    
+}
+
+.rotulos{
+    display: flex;
+    flex-direction:column;    
+    row-gap: 60px;
+
+}
+.rotulos label[type="nomeVac"] {
+    
+}
+
+
+
+.lblTxt{
+    color: #ffffff;
+    text-align: end;
+    padding-right: 10px;
+    padding-top: 10px;
+   
+}
+#label_data_vac{
+   
+}
+#label_nome_vac{
+    
+}
+#label_dose{
+   
+}
+#label_comp_vac{
+   
+}
+#proxVac{
+   
+}
+
+
+.entradasDados{
+    display: flex;
+    flex-direction: column;
+    
+    
+
+}
+.entradasDados input{
+    font-family: 'Averia Libre';
+    font-size: 36px;
+    color: #3F92C5;
+    width: 300px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+   
+    
+}
+
+.radios{
+    display: flex;
+    flex-direction: row;
+    font-size: 30px;
+    color: #ffffff;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    
+    
+}
+.radios input {
+    margin-left: 10px;
+    margin-right:10px;
+    width: 20px;
+    
+} 
+
+#quadradoImagem{
+
+    width: 300px;
+    height: 47px;
+    background-color: #419ED7;
+    border-style: solid 2px var(black);
+    border-radius: 10px;
+    font-family: 'Averia Libre';
+    font-size: 24px;
+    color: #ffffff;
+    
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 20px;
+    
+    
+}
+
+#myfile{
+    display: none;
+}
+#picture{
+
+    width: 300px;
+    height: 146px;
+    background-color: #ccc;
+    display: block;
+    border: 2px dashed #aaa;
+    margin-bottom: 50px;
+    
+    
+}
+
+
+
+
+
+
