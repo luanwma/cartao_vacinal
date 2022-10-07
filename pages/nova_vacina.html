@@ -114,61 +114,77 @@
 
 
 
-         <div class="corpoBody">
-            <div class="rotulos">
-                <div class="lblTxt">
-                    <label id="label_data_vac"class="input_label" for="data_vacinacao">Data de Vacinação</label>
-                </div>
-                <div class="lblTxt">
-                    <label name="nomeVac" id="label_nome_vac" class="input_label" for="nome_vac">Vacina</label>
-                </div>
-                <div class="lblTxt">
-                    <label id="label_dose" class="input_label" for="dose">Dose</label>
-                </div>
-                <div class="lblTxt">
-                    <label id="label_comp_vac" class="input_label" for="comprovante_vacina">Comprovante da Vacina</label>
-                </div>
-                <div class="lblTxt">
-                <label id="proxVac" class="input_label"for="data_proxVac">Próxima Vacina</label>
-                </div>
-                
-            </div>
-
-            <div class="entradasDados">
-                <input name="data_vacinacao" type="date" data-type="data" placeholder="dia/mes/ano" id="data_vacinacao" class="txtEntrada">
-                <input name="nome_vacina" type="text" data-type="nome_vacina" id="nome_vac" class="txtEntrada" >
-
-                    <div class="radios">
-                        <input type="radio" name="dose" value="dose1"  class="radio_text" id="dose1"><label for="dose1" >1a. Dose</label><br>
-                        <input type="radio" name="dose" value="dose2"  class="radio_text" id="dose2"> <label for="dose2">2a. Dose</label> <br>
-                        <input type="radio" name="dose" value="dose3" class="radio_text" id="dose3"> <label for="dose3">3a. Dose</label> <br>
-                        <input type="radio" name="dose" value="reforco" class="radio_text" id="reforco"> <label for="reforco">Reforço</label><br>
-                        <input type="radio" name="dose" value="doseUnica" class="radio_text" id="doseUnica"><label for="doseUnica">Dose Única</label>
+        <div class="corpoBody">
+            <div class="formulario"> 
+                <div class="rotulos">
+                    <div class="lblTxt">
+                        <label id="label_data_vac"class="input_label" for="data_vacinacao">Data de Vacinação</label>
                     </div>
-
-                    <label for="myfile" tabindex="0"> 
-                    <div id="quadradoImagem">
-                        <span class="imagemInput">Selecionar Imagem</span>
+                    <div class="lblTxt">
+                        <label name="nomeVac" id="label_nome_vac" class="input_label" for="nome_vac">Vacina</label>
                     </div>
-
-                    </label>
+                    <div class="lblTxt">
+                        <label id="label_dose" class="input_label" for="dose">Dose</label>
+                    </div>
+                    <div class="lblTxt">
+                        <label id="label_comp_vac" class="input_label" for="comprovante_vacina">Comprovante da Vacina</label>
+                    </div>
+                    <div id="lblTxtProx">
+                    <label id="proxVac" class="input_label"for="data_proxVac">Próxima Vacina</label>
+                    </div>
                     
+                </div>
 
-                    <label id="picture" >
-                       
-                        <input type="file" accept="image/*" id="myfile" name="comprovante_vacina" >
+                <div class="entradasDados">
+                    <input name="data_vacinacao" type="date" data-type="data" placeholder="dia/mes/ano" id="data_vacinacao" class="txtEntrada">
+                    <input name="nome_vacina" type="text" data-type="nome_vacina" id="nome_vac" class="txtEntrada" >
+
+                        <div class="radios">
+                            <input type="radio" name="dose" value="dose1"  class="radio_text" id="dose1"><label for="dose1" >1a. Dose</label><br>
+                            <input type="radio" name="dose" value="dose2"  class="radio_text" id="dose2"> <label for="dose2">2a. Dose</label> <br>
+                            <input type="radio" name="dose" value="dose3" class="radio_text" id="dose3"> <label for="dose3">3a. Dose</label> <br>
+                            <input type="radio" name="dose" value="reforco" class="radio_text" id="reforco"> <label for="reforco">Reforço</label><br>
+                            <input type="radio" name="dose" value="doseUnica" class="radio_text" id="doseUnica"><label for="doseUnica">Dose Única</label>
+                        </div>
+
+                        <label for="myfile" tabindex="0"> 
+                        <div id="quadradoImagem">
+                            <span class="imagemInput">Selecionar Imagem</span>
+                        </div>
+
+                        </label>
                         
-                    </label>
+
+                        <label id="picture" >
+                        
+                            <input type="file" accept="image/*" id="myfile" name="comprovante_vacina" >
+                            
+                        </label>
 
 
-                    <input name="proxVacina" type="date" data-type="data" placeholder="dia/mes/ano" id="data_proxVac" class="txtEntrada" >
+                        <input name="proxVacina" type="date" data-type="data" placeholder="dia/mes/ano" id="data_proxVac" class="txtEntrada" >
 
+                </div>
             </div>
 
+            
+            
+                <div class="divBotaoCadastrar">
+                    <a href="home.html">
+                    <button class="botaoVerde">
+                        Cadastrar
+                    </button>
+                </div>
+
+        </div>
+            
+            
+
+       
+       
 
 
-
-        </div> 
+      
 
 
         <!-- 

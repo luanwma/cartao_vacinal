@@ -5,6 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="../css/main.css" type='text/css' media="screen">
+   
+    <link rel="stylesheet" href='../css/formVacina.css'>
     <link rel="stylesheet" href="../css/criar_conta.css">
   
     <link href="https://fonts.googleapis.com/css2?family=Averia+Libre&display=swap" rel="stylesheet" type="text/css" media="screen">
@@ -31,37 +33,38 @@
 
 
 
-    <div class="form"> 
+    <div class="corpoBody"> 
 
        
             <div class="formulario"> 
 
                 <div class="rotulos">
-                    <label class="input-label" for="nome">Nome</label>
-                    <label class="input-label" for="sexo">Sexo</label>
-                    <label class="input-label" for="data_nasc">Data de Nascimento</label>
-                    <label class="input-label" for="email">Email</label>
-                    <label class="input-label" for="senha">Senha</label>
-                    <label class="input-label" for="repetsenha">Repetir senha</label>
+                    <div class="lblTxt" > <label class="input-label" for="nome">Nome</label> </div>
+                    
+                    <div class="lblTxt"><label class="input-label" for="sexo">Sexo</label></div>
+                    <div class="lblTxt"> <label class="input-label" for="data_nasc">Data de Nascimento</label> </div>
+                   <div class="lblTxt"><label class="input-label" for="email">Email</label> </div> 
+                   <div class="lblTxt">   <label class="input-label" for="senha">Senha</label>      </div> 
+                    <div class="lblTxt">  <label class="input-label" for="repetsenha">Repetir senha</label> </div>
                 </div>
 
-                <div class="inputs_texts">
+                <div class="entradasDados">
 
-                    <input class ="input" name="nome" id="nome"  type="text" placeholder="Insira seu nome" data-tipo="nome" required>
+                    <input class ="lblTxt" name="nome" id="nome"  type="text" placeholder="Insira seu nome" data-tipo="nome" required>
 
                     <div class="radios" >
-                        <input type="radio" name="sexo"  value="Masculino" class="radio_texts"  id="sexoM"> <label for="sexoM"> Masculino </label >  
-                        <input class="radio_texts" type="radio" name="sexo"  value="Feminino" class="input"  id="sexoF"> <label for="sexoF"> Feminino </label> 
+                        <input type="radio" name="sexo"  value="Masculino" class="radio_text"  id="sexoM"> <label for="sexoM"> Masculino </label >  
+                        <input class="radio_text" type="radio" name="sexo"  value="Feminino"   id="sexoF"> <label for="sexoF"> Feminino </label> 
                     
                     </div>
 
-                    <input name="data_nasc" id="data_nasc"  type="date" placeholder="dia/mês/ano" data-tipo="data" required>
-                    <input name="email" id="email" type="email" placeholder="Insira seu email" data-tipo="email" required>
+                    <input class="lblTxt" name="data_nasc" id="data_nasc"  type="date" placeholder="dia/mês/ano" data-tipo="data" required>
+                    <input class="lblTxt" name="email" id="email" type="email" placeholder="Insira seu email" data-tipo="email" required>
 
-                    <input name="senha" id="senha"  type="password" placeholder="Crie uma senha" pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?!.*[ !@#$%^&*_=+-]).{6,12}$" 
+                    <input class="lblTxt" name="senha" id="senha"  type="password" placeholder="Crie uma senha" pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?!.*[ !@#$%^&*_=+-]).{6,12}$" 
                     title="A senha deve conter entre 6 a 12 caracteres, deve conter pelo menos uma letra maiúscula, um número e não deve conter símbolos." data-tipo="senha" required>
                     
-                    <input name="repetsenha" id="repetsenha"  type="password" placeholder="Repita a senha" pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?!.*[ !@#$%^&*_=+-]).{6,12}$" 
+                    <input class="lblTxt" name="repetsenha" id="repetsenha"  type="password" placeholder="Repita a senha" pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?!.*[ !@#$%^&*_=+-]).{6,12}$" 
                     title="A senha deve conter entre 6 a 12 caracteres, deve conter pelo menos uma letra maiúscula, um número e não deve conter símbolos." data-tipo="repetsenha" required>
                 
                 </div>
@@ -74,8 +77,8 @@
         
 
 
-            <div class="div_btnCadastrar"> <a href="home.html"> 
-                <button class="btn_cadastrar">
+            <div class="divBotaoCadastrar"> <a href="home.html"> 
+                <button class="botaoVerde">
                     Cadastrar
                 </button></a>
                 
