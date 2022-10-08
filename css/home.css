@@ -1,4 +1,10 @@
-
+*{
+    margin: 0;
+    padding: 0;
+    font-family: 'Averia Libre';
+    font-style: normal;
+    font-weight: 400;
+}
 
 
 .texto_index_geral{
@@ -37,4 +43,37 @@
     align-items: center;
     margin-top: 30%; 
 }
+.cxDados{
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  
+}
 
+.dadosVacinas{
+    display: grid;
+    column-gap: 66px;
+    row-gap: 46px;
+    grid-template-columns: auto auto auto;
+    grid-template-rows: auto auto auto;
+    width: fit-content;
+
+
+}
+.componenteVacina{
+    background-color: #ffffff;
+    margin-top: 10px;
+    width: fit-content;
+    padding: 20px;
+    width: 330px;
+    height: 321px;
+    border-radius: 10px;
+
+}
+
+.divImagem img{
+    width: 299px;
+    height: 146px;
+}
