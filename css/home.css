@@ -24,7 +24,7 @@
     font-weight: 400;
 
     margin-left: 2%;
-    margin-top: 100px;
+    margin-top: 2%;
     height: 40px;
     font-size: 24px;
 }
@@ -72,8 +72,30 @@
     border-radius: 10px;
 
 }
+.componenteVacina h1{
+    font-size: 36px;
+    color: #3F92C5;
+}
 
 .divImagem img{
     width: 299px;
     height: 146px;
 }
+.cxlblDose h2{
+    background-color: #3F92C5;
+    color: #ffffff;
+    font-size: 16px;
+    width: fit-content;
+    padding: 5px;
+}
+.lblDataComp{
+    font-size: 16px;
+    color: #8B8B8B ;
+}
+
+.proxDose p{
+    font-size: 16px;
+    color: #FD7979;
+}
+
+
