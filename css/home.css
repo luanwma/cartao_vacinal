@@ -4,6 +4,11 @@
     font-family: 'Averia Libre';
     font-style: normal;
     font-weight: 400;
+   
+}
+
+body{
+    height: auto;
 }
 
 
@@ -15,18 +20,55 @@
   
    
 }
+.barraPesquisa{
+    display: flex;
+    flex-direction: row;
+    justify-self: center;
+    align-items: center;
+    align-self: center;
+    align-content: center;
+    justify-content: center;
+    justify-items: center;
+
+    background-color: #ffffff;
+    height: 48px;
+    width: 94%;
+    margin-top: 2%;
+    margin-left: 3%;
+    border-radius: 10px;
+    
+}
+.barraImage{
+    display: flex;
+    flex-direction: row;
+
+    width: fit-content;
+    height: fit-content;
+    border: solid #ffffff;
+    margin-left: 10px;
+   
+}
 
 .barra_pesquisar{
     display: flex;
-    width: 96%;
+    flex-direction: row;
+    width: 100%;
     font-family: 'Averia Libre';
     font-style: normal;
     font-weight: 400;
+    margin-right: 10px;
+    text-decoration: none;
 
-    margin-left: 2%;
-    margin-top: 2%;
+    
+    
     height: 40px;
     font-size: 24px;
+ 
+
+
+}
+#pesquisar{
+    image-rendering: var(--);
 }
 
 
@@ -49,6 +91,7 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    margin-top: 62px;
   
 }
 
@@ -59,27 +102,49 @@
     grid-template-columns: auto auto auto;
     grid-template-rows: auto auto auto;
     width: fit-content;
-
+ 
 
 }
 .componenteVacina{
+    display: flex;
+    flex-direction: column;
     background-color: #ffffff;
-    margin-top: 10px;
+   
     width: fit-content;
-    padding: 20px;
+    
     width: 330px;
     height: 321px;
     border-radius: 10px;
+    align-items: center;
+    justify-items: center;
+    cursor: pointer;
+    
+
+
 
 }
 .componenteVacina h1{
     font-size: 36px;
     color: #3F92C5;
+    padding-top: 15px;
+    margin-bottom: 6px;
+    height: 41px;
+    line-height: 43px;
+   
 }
 
+
 .divImagem img{
-    width: 299px;
+    width: 300px;
     height: 146px;
+   
+}
+.cxlblDose{
+    margin-top: 5px;
+   
+    height: 19.98px;
+    margin-bottom: 6px;
+
 }
 .cxlblDose h2{
     background-color: #3F92C5;
@@ -91,11 +156,40 @@
 .lblDataComp{
     font-size: 16px;
     color: #8B8B8B ;
+    margin-top: 6.02px;
+    margin-bottom: 11.14px;
+    
 }
 
-.proxDose p{
+/* icon */
+.searchIcon{
+   
+
+position: absolute;
+width: 27px;
+height: 26px;
+left: 44px;
+top: 120px;
+
+background: url(search.png);
+
+}
+
+
+
+.proxDose{
+ 
+   width:100%;
+   height: 100%;
+    padding-top: 20px;
+    padding-right: 10px;
+}
+
+.proxDose > p{
     font-size: 16px;
     color: #FD7979;
+    text-align: right;
+   
 }
 
 

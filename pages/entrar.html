@@ -9,11 +9,14 @@
     <link rel="stylesheet" href="../css/formVacina.css">
     
     <link href="https://fonts.googleapis.com/css2?family=Averia+Libre&display=swap" rel="stylesheet">
-    <title>Entrar</title>
+    
+    
+    <title id="pTitle">Entrar</title>
 
    
 </head>
 <body>
+   
 
     <header>
         <nav class="container">
@@ -49,11 +52,11 @@
         </div>
         
         <div class="divErroEmailSenha">
-            <label class="erroEmailSenha"> Email e/ou senha inválidos </label>
+            <label id="erroEmailSenha"> Email e/ou senha inválidos </label>
         </div>
 
-        <div class="divBotaoCadastrar">
-           <a href="home.html"><button class="botaoVerde" >Entrar</button></a> 
+        <div class="divBotaoCadastrar" >
+           <button id="btnEntrar" class="botaoVerde" > Entrar </button>
         </div>
         <div class="divRecuperarSenha">
             <a href="recuperar_senha.html" id="recuperaSenha" >Esqueci minha senha</a>
@@ -62,6 +65,8 @@
 
      
     </div>
+
+    <script  src="../js/main.js"  type="module"> </script>
     
 </body>
 </html>
