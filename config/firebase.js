@@ -5,7 +5,7 @@
         //import na mao
         import { getAuth } from "https://www.gstatic.com/firebasejs/9.12.1/firebase-auth.js"
 
-        import { getStorage } from "https://www.gstatic.com/firebasejs/9.12.1/firebase-storage.js"
+        import { getStorage , uploadBytes, ref, getDownloadURL, deleteObject, uploadBytesResumable} from "https://www.gstatic.com/firebasejs/9.12.1/firebase-storage.js"
      
     
       

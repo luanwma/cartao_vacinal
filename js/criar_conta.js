@@ -7,12 +7,16 @@
     import {onAuthStateChanged } from "https://www.gstatic.com/firebasejs/9.12.1/firebase-auth.js"
     import {addDoc, collection } from "https://www.gstatic.com/firebasejs/9.12.1/firebase-firestore.js";
     import {createUserWithEmailAndPassword} from "https://www.gstatic.com/firebasejs/9.12.1/firebase-auth.js"
+   
   
+
+    var idUser
   
  window.onload = () =>{
     onAuthStateChanged(auth, (user) => {
         if(user){
-            window.location.href = "./home.html"
+           // salvarUsuario()
+           // window.location.href = "./home.html"
         }else{
            
         }
@@ -93,6 +97,7 @@ function criarConta(){
        // })
        .then((userCredential) => {
             const user = userCredential.user;
+           
           
             addDoc(collection(db, "usuarios"), {
                 nome : getNome(),
@@ -111,7 +116,7 @@ function criarConta(){
             })
             .catch( (error) => {
                 console.log("erro ao persistir dados: "+error)
-            })
+            }) 
        })
         .catch( (error) => {
             const errorCode =  error.code
@@ -127,3 +132,4 @@ function criarConta(){
    
 
 }
+

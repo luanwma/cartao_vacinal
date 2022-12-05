@@ -8,22 +8,37 @@
   // import {getStorage} from "https://www.gstatic.com/firebasejs/9.10.0/firebase-storage.js"
   import {onAuthStateChanged } from "https://www.gstatic.com/firebasejs/9.12.1/firebase-auth.js"
     
-   import {query, collection,addDoc, onSnapshot } from "https://www.gstatic.com/firebasejs/9.12.1/firebase-firestore.js"
-   import {uploadBytes, ref, getDownloadURL} from "https://www.gstatic.com/firebasejs/9.12.1/firebase-storage.js"
+   import {query, collection,addDoc, updateDoc, doc, getDoc, onSnapshot } from "https://www.gstatic.com/firebasejs/9.12.1/firebase-firestore.js"
+   import {uploadBytes, ref, getDownloadURL, } from "https://www.gstatic.com/firebasejs/9.12.1/firebase-storage.js"
+
    import { auth, logOut} from "./entrar.js"
+   
 
    var newVac
     
    var file = null
    var picture, check
-  window.onload = () =>{
-    onAuthStateChanged(auth, (user) => {
+    
+   var idUser, idVacina = null
+
+    window.onload = () =>{
+        onAuthStateChanged(auth, (user) => {
         if(!user){
             window.location.href = "./entrar.html"
         }else{
-            
+          idUser = user.uid
+          idVacina = sessionStorage.getItem('dados');
+          if(idVacina == null ){
+            alert("id Vacina null")
+          }else{
+            alert("id da vacina "+idVacina)
+          }
+          
         }
        })
+      
+       
+       
         
         const myVacine = document.getElementById("myvacine")
         myVacine.addEventListener('click',transfereHome )
@@ -43,6 +58,13 @@
         
     }
 
+    const getIdVacina = () =>{
+        return idVacina
+    }
+
+    const getIdUser = () =>{
+        return idUser
+    }
 
     const setNome = (nomeVacina) => {
         document.getElementById("nome_vac").value = nomeVacina
@@ -128,7 +150,7 @@
 
   
     var myfile
-
+/*
    const cadastrarVacina = () => {
         const comp = "compr"
         const refFile = "imagens/"+comp+"_"+getNome()+"_"+getDose()+".jpg"
@@ -173,6 +195,112 @@
         })
 
    }
+   */
+
+   
+
+
+   const cadastrarVacina = () => {
+
+    if(idVacina != null){
+        const comp = "compr"
+        const refFile = "imagens/"+comp+"_"+getNome()+"_"+getDose()+".jpg"
+
+            uploadBytes(ref(storage, refFile), file )
+            .then((result) =>{
+                console.log("arquivo enviado com sucesso "+result)
+                getDownloadURL(ref(storage, refFile))
+                .then((url) =>{
+                    console.log("url: "+ url)
+                    
+                        updateDoc(doc(db, "vacinas", idVacina), {
+                            nome : getNome(),
+                            data_vacinacao : getDataVacinacao() ,
+                            dose : getDose(),
+                            data_proxima_dose : getDataProxVac(),
+                            comprovante_vacina : url,
+                            id_usuario : getIdUser()
+
+                            
+                        
+                
+                
+                        })
+                        .then( (result) =>{
+                            console.log(JSON.stringify(result))
+                            window.location.href= "./home.html";
+
+                        })
+                        .catch( (error) => {
+                            console.log("erro ao persistir dados: "+error)
+                        })
+
+                    })
+                .catch((erro) => {
+                    console.log("erro ao obter url "+ erro)
+
+                })
+
+
+            })
+            .catch((erroup) =>{
+                console.log("erro ao enviar arquivo "+erroup)
+            })
+
+    }else{
+
+        const comp = "compr"
+        const refFile = "imagens/"+comp+"_"+getNome()+"_"+getDose()+".jpg"
+
+            uploadBytes(ref(storage, refFile), file )
+            .then((result) =>{
+                console.log("arquivo enviado com sucesso "+result)
+                getDownloadURL(ref(storage, refFile))
+                .then((url) =>{
+                    console.log("url: "+ url)
+                    
+                        addDoc(collection(db, "vacinas"), {
+                            nome : getNome(),
+                            data_vacinacao : getDataVacinacao() ,
+                            dose : getDose(),
+                            data_proxima_dose : getDataProxVac(),
+                            comprovante_vacina : url,
+                            id_usuario : getIdUser()
+
+                            
+                        
+                
+                
+                        })
+                        .then( (result) =>{
+                            console.log(JSON.stringify(result))
+                            window.location.href= "./home.html";
+
+                        })
+                        .catch( (error) => {
+                            console.log("erro ao persistir dados: "+error)
+                        })
+
+                    })
+                .catch((erro) => {
+                    console.log("erro ao obter url "+ erro)
+
+                })
+
+
+            })
+            .catch((erroup) =>{
+                console.log("erro ao enviar arquivo "+erroup)
+            })
+
+
+
+
+    }
+
+    
+
+}
 
     function transfereHome(){
         window.location.href= "./home.html" 

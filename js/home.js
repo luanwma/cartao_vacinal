@@ -1,29 +1,25 @@
 
     import Vacina  from "./Vacina.js"
-    import { db} from '../config/firebase.js'
+    import { storage, db} from '../config/firebase.js'
     import {onAuthStateChanged } from "https://www.gstatic.com/firebasejs/9.12.1/firebase-auth.js"
-   import {query, collection,addDoc, onSnapshot } from "https://www.gstatic.com/firebasejs/9.12.1/firebase-firestore.js"
+    import {query, getDoc, collection,addDoc,  doc, updateDoc, deleteDoc, onSnapshot, where } from "https://www.gstatic.com/firebasejs/9.12.1/firebase-firestore.js"
+    import {uploadBytes, ref, getDownloadURL, deleteObject, uploadBytesResumable} from "https://www.gstatic.com/firebasejs/9.12.1/firebase-storage.js"
    import { auth, logOut} from "./entrar.js"
 
-    var pTitle = document.getElementById('pTitle').textContent
-  
-   /* var nomeVacina, dose, dataAplicacao, imgComprovante, dataProxDose
-    var vac1 = new Vacina( 'BCG', 'Dose Única', '11/06/2022', '../imagens/compVacina.png', 'Não há próxima dose');
-    var vac2 = new Vacina("Hepatite B", "1a. Dose", "11/08/2022", "../imagens/compVacina.png", "Próxima dose em: 11/10/2022")
-    var vac3 = new Vacina("Rotavírus", "1a. Dose", "11/10/2022", "../imagens/compVacina.png", "Próxima dose em: 11/10/2023")
-    var vac4 = new Vacina("Febre amarela", "1a. Dose", "11/10/2022", "../imagens/compVacina.png", "Próxima dose em: 11/10/2023")
-
-    var listaVacinas = [vac1, vac2, vac3, vac4]
-    var vacina = new Vacina() */
-
-   
     
+
+   var idUser, idVacina = null, pathFoto
+
+  
+    var btnDelc
     window.onload = () =>{
        onAuthStateChanged(auth, (user) => {
         if(!user){
             window.location.href = "./entrar.html"
         }else{
+            idUser = user.uid
             carregarVacinas()
+           
         }
        })
 
@@ -36,12 +32,36 @@
         
         
        
-        const myVacine = document.getElementById("myvacine")
+        //const myVacine = document.getElementById("myvacine")
+      
         var divComponent = document.getElementsByTagName("divComponent")
 
         var btnLogOut = document.getElementById('logout')
         btnLogOut.addEventListener('click', logOut)
+        var btnNovaVacina = document.getElementById("btnNovaVacina")
+        btnNovaVacina.addEventListener('click', function () {
+            sessionStorage.setItem('dados', null);
+         
+
+          window.location.href = "./nova_vacina.html"
+
+        })
       
+    }
+
+    function setIdVacina(id){
+        idVacina = id
+    }
+    function getIdVacina(){
+        return idVacina
+    }
+   
+   
+    const getPathFoto = () =>{
+        return pathFoto
+    }
+    const setPathFoto = (path) =>{
+        pathFoto = path
     }
    
    /*
@@ -60,22 +80,37 @@
     }  */
     
     const lista = query(collection(db, "vacinas"))
+    const getIdUser = () =>{
+        return idUser
+    }
+
+    
 
 
     const carregarVacinas = () => {
+
+       
+
+
+
         onSnapshot(lista, (results) => {
             results.forEach(element => {
-                var nomevacina = element.data().nome
-                var dose = element.data().dose
-                var dataAplicacao = element.data().data_vacinacao
-                var imgComprovante = element.data().comprovante_vacina
-                var dataProxDose = element.data().data_proxima_dose
-                var id = element.id
+                if(element.data().id_usuario ==  getIdUser()){
+                    var nomevacina = element.data().nome
+                    var dose = element.data().dose
+                    var dataAplicacao = element.data().data_vacinacao
+                    var imgComprovante = element.data().comprovante_vacina
+                    setPathFoto(imgComprovante)
+                    var dataProxDose = element.data().data_proxima_dose
+                    var id = element.id
+                    enviaDados(nomevacina, dose, dataAplicacao, imgComprovante, dataProxDose, id)
+                }
+                
 
 
                
                
-                enviaDados(nomevacina, dose, dataAplicacao, imgComprovante, dataProxDose, id)
+                
               
             })
 
@@ -83,7 +118,7 @@
     }
 
 
-    function percorrerLista(){
+   /* function percorrerLista(){
    // alert('entrou na funcao percorrer lista')
     for(var i = 0 ; i < listaVacinas.length ; i++){
         var nomevacina = listaVacinas[i].getNomeVacina
@@ -96,7 +131,9 @@
         enviaDados( nomevacina,dose, dataAplicacao, imgComprovante, dataProxDose)
 
     }
-}
+} */
+
+
 
 
 function enviaDados( nomevacina,dose, dataAplicacao, imgComprovante, dataProxDose, id ){
@@ -117,16 +154,26 @@ function enviaDados( nomevacina,dose, dataAplicacao, imgComprovante, dataProxDos
 
             </div> </a>
             */
-       id.value
+     
 
        
     var divComponent = document.createElement("div")
     divComponent.setAttribute("class", "componenteVacina")
     divComponent.setAttribute("id",id ) 
     //divComponent.setAttribute("id", "")
+    var divBtnDel = document.createElement("div")
+    divBtnDel.setAttribute("id", "divBtnDel")
+    
 
-   
-   
+    var btndel = document.createElement("button")
+    btndel.setAttribute("id", "btnDel")
+    var imgD = document.createElement("img")
+    imgD.setAttribute("src", "../imagens/botao_deletar.png")
+    imgD.setAttribute("width", "50px")
+    imgD.setAttribute("heigth", "50px")
+    btndel.appendChild(imgD)
+    divBtnDel.appendChild(btndel)
+    divComponent.appendChild(divBtnDel)   
     
     var titlecomponent = document.createElement("h1")
     titlecomponent.setAttribute("class", "componentTitle") 
@@ -188,7 +235,7 @@ function enviaDados( nomevacina,dose, dataAplicacao, imgComprovante, dataProxDos
 
     divComponent.appendChild(divproxdose)
 
-    
+   
 
     
     var divRecebeComponente = document.querySelector("#componenteDadosVacina")
@@ -196,17 +243,33 @@ function enviaDados( nomevacina,dose, dataAplicacao, imgComprovante, dataProxDos
 
    // vacina = new Vacina(nomevacina,dose, dataAplicacao, imgComprovante, dataProxDose)
     //vacina = {nomeVacina, dose, dataAplicacao, imgComprovante, dataProxDose}
-
-    divComponent.addEventListener('click', ( ) => {
-
-
-
-        window.location.href = "./editar_vacina.html"
-
-       
-
+    btndel.addEventListener('click', function (){
+        deleteObject(ref(storage, getPathFoto() ))
+        .then( ()=>{
+            console.log("arquivo excluido com sucesso ")
+            deleteDoc(doc(db, "vacinas", id))
+            .then( () =>{
+                alert("Vacina excluida")
+                window.location.href = "./home.html"
+            })
+            .catch( (error)=>{
+                console.log("erro ao excluir documento "+ error)
+            })
+        })
+        .catch( (error) => {
+            console.log("Erro ao excluir arquivo "+error)
+        })
 
     })
+    
+    divimg.addEventListener('click', function () {
+        sessionStorage.setItem('dados', id);
+         
+
+          window.location.href = "./nova_vacina.html"
+    } )
+
+
         
     
     
@@ -214,6 +277,8 @@ function enviaDados( nomevacina,dose, dataAplicacao, imgComprovante, dataProxDos
 
 
 } 
+
+
 
 export {}
 
