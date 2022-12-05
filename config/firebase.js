@@ -1,8 +1,14 @@
     //o que nao for feito a mao é copiado direto da pagina do firebase
         // Import the functions you need from the SDKs you need
         import { initializeApp } from "https://www.gstatic.com/firebasejs/9.12.1/firebase-app.js";
+        import { initializeFirestore } from "https://www.gstatic.com/firebasejs/9.12.1/firebase-firestore.js";
         //import na mao
-        import {getAuth} from "https://www.gstatic.com/firebasejs/9.12.1/firebase-auth.js"
+        import { getAuth } from "https://www.gstatic.com/firebasejs/9.12.1/firebase-auth.js"
+
+        import { getStorage } from "https://www.gstatic.com/firebasejs/9.12.1/firebase-storage.js"
+     
+    
+      
 
         // TODO: Add SDKs for Firebase products that you want to use
         // https://firebase.google.com/docs/web/setup#available-libraries
@@ -19,8 +25,13 @@
       
         // Initialize Firebase
         const app = initializeApp(firebaseConfig);
-        //criaçao do auth na mao
-        const auth = getAuth(app)
+        
 
-        export {app, auth}
+        const auth = getAuth(app)
+        const db = initializeFirestore(app, {experimentalForceLongPolling: true})
+        const storage = getStorage(app)
+
+       
+
+        export {app, auth, db, storage}
   

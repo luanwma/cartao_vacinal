@@ -35,12 +35,13 @@ const vacina = function(nomeVacina, dose, dataAplicacao, imgComprovante, dataPro
 
  class Vacina{
    
-    constructor(nomeVacina, dose, dataAplicacao, imgComprovante, dataProxDose){
+    constructor(nomeVacina, dose, dataAplicacao, imgComprovante, dataProxDose, id){
         this.nomeVacina =nomeVacina
         this.dose = dose
         this.dataAplicacao = dataAplicacao
         this.imgComprovante = imgComprovante
         this.dataProxDose = dataProxDose
+        this.id =id
 
     }
 
@@ -58,6 +59,12 @@ const vacina = function(nomeVacina, dose, dataAplicacao, imgComprovante, dataPro
     }
     set setDataProxDose(dataProxDose){
         this.dataProxDose = dataProxDose
+    }
+    set setId(id){
+        this.id =id
+    }
+    get getId(){
+        return this.id
     }
 
     get getNomeVacina(){
