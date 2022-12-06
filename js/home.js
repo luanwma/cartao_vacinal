@@ -8,31 +8,26 @@
 
     
 
-   var idUser, idVacina = null, pathFoto
+   var idUser, idVacina , pathFoto
+   
 
   
     var btnDelc
     window.onload = () =>{
+
+       idVacina = "1"
+       
        onAuthStateChanged(auth, (user) => {
         if(!user){
             window.location.href = "./entrar.html"
         }else{
             idUser = user.uid
-            carregarVacinas()
-           
+         
+           // carregarVacinas()
+           carregarVacV2()
         }
        })
 
-
-       /* auth.onAuthStateChanged(function (user){
-            if(!user.currentUser){
-                
-            }
-        })*/
-        
-        
-       
-        //const myVacine = document.getElementById("myvacine")
       
         var divComponent = document.getElementsByTagName("divComponent")
 
@@ -40,7 +35,7 @@
         btnLogOut.addEventListener('click', logOut)
         var btnNovaVacina = document.getElementById("btnNovaVacina")
         btnNovaVacina.addEventListener('click', function () {
-            sessionStorage.setItem('dados', null);
+            sessionStorage.setItem('dados', idVacina);
          
 
           window.location.href = "./nova_vacina.html"
@@ -55,6 +50,13 @@
     function getIdVacina(){
         return idVacina
     }
+
+    function setIdDelete(id){
+        idVacina = id
+    }
+    function getIdDelete(){
+        return idVacina
+    }
    
    
     const getPathFoto = () =>{
@@ -64,32 +66,21 @@
         pathFoto = path
     }
    
-   /*
-    function checkLogin(){
-        firebase.auth().onAuthStateChanged((user)=> {
-            if (user) {
-                this.setState(
-                    {user:user}
-                )
-              //  this.getPhotos(user.uid)
-                this.props.history.push("/add");
-            } else {
-                window.location.href = "entrar.html"
-            }
-        });
-    }  */
+
     
-    const lista = query(collection(db, "vacinas"))
+    
+    
     const getIdUser = () =>{
         return idUser
     }
+   // const listaById = query(collection(db, "vacinas"), where("id_usuario", "==", idUser))
 
     
 
 
-    const carregarVacinas = () => {
+   /* const carregarVacinas = () => {
 
-       
+        const lista = query(collection(db, "vacinas"))
 
 
 
@@ -115,6 +106,66 @@
             })
 
         } )
+    } */
+
+    function deletarVacina(){
+
+    
+        var id = getIdDelete()
+        alert("path excluir " + getPathFoto() + "id vac :" +id )
+
+        var path = getPathFoto()
+        deleteDoc(doc(db, "vacinas", id))
+        .then( ()=>{
+            alert("Vacina excluida "+ id)
+            deleteObject(ref(storage, path))
+            .then(() => {
+                console.log("objeto excluido : "+ path +"com o id:"+ id)
+                window.location.href = "./home.html"
+                carregarVacV2()
+            })
+            .catch( () =>{
+                console.log("objeto nao excluido ")
+            })
+        })
+        .catch( () =>{
+            console.log("vacina nao excluida ")
+        })
+
+       // 
+    }
+
+    const carregarVacV2 = () =>{
+        var id = getIdUser()
+
+        const busca = query(collection(db, "vacinas"), where("id_usuario", "==", id));
+      //  const lista = query(collection(db, "vacinas"))
+      //  const lista2 = query(lista, where("id_usuario", "==", id))
+
+
+        onSnapshot(busca, (results) => {
+            results.forEach(element => {
+              //  if(element.data().id_usuario ==  getIdUser()){
+                    var nomevacina = element.data().nome
+                    var dose = element.data().dose
+                    var dataAplicacao = element.data().data_vacinacao
+                    var imgComprovante = element.data().comprovante_vacina
+                    setPathFoto(imgComprovante)
+                    var dataProxDose = element.data().data_proxima_dose
+                    var id = element.id
+                    enviaDados(nomevacina, dose, dataAplicacao, imgComprovante, dataProxDose, id)
+             //   }
+                
+
+
+               
+               
+                
+              
+            })
+
+        } )
+
     }
 
 
@@ -132,6 +183,8 @@
 
     }
 } */
+
+
 
 
 
@@ -243,8 +296,36 @@ function enviaDados( nomevacina,dose, dataAplicacao, imgComprovante, dataProxDos
 
    // vacina = new Vacina(nomevacina,dose, dataAplicacao, imgComprovante, dataProxDose)
     //vacina = {nomeVacina, dose, dataAplicacao, imgComprovante, dataProxDose}
-    btndel.addEventListener('click', function (){
-        deleteObject(ref(storage, getPathFoto() ))
+
+   
+    btndel.addEventListener('click', function(){
+        setIdDelete(id)
+        deletarVacina()
+    } )
+
+   /* btndel.addEventListener('click', function (){
+        alert("path excluir " + getPathFoto() + "id vac :" +id )
+
+        var path = getPathFoto()
+        deleteDoc(doc(db, "vacinas", id))
+        .then( ()=>{
+            alert("Vacina excluida "+ id)
+            deleteObject(ref(storage, path))
+            .then(() => {
+                console.log("objeto excluido : "+ path +"com o id:"+ id)
+            })
+            .catch( () =>{
+                console.log("objeto nao excluido ")
+            })
+        })
+        .catch( () =>{
+            console.log("vacina nao excluida ")
+        })
+
+        window.location.href = "./home.html"
+    
+    })
+      /*  deleteObject(ref(storage, getPathFoto() ))
         .then( ()=>{
             console.log("arquivo excluido com sucesso ")
             deleteDoc(doc(db, "vacinas", id))
@@ -260,14 +341,14 @@ function enviaDados( nomevacina,dose, dataAplicacao, imgComprovante, dataProxDos
             console.log("Erro ao excluir arquivo "+error)
         })
 
-    })
+    }) */
     
     divimg.addEventListener('click', function () {
         sessionStorage.setItem('dados', id);
          
 
           window.location.href = "./nova_vacina.html"
-    } )
+    } ) 
 
 
         

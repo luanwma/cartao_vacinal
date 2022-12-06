@@ -202,101 +202,100 @@
 
    const cadastrarVacina = () => {
 
-    if(idVacina != null){
-        const comp = "compr"
-        const refFile = "imagens/"+comp+"_"+getNome()+"_"+getDose()+".jpg"
 
-            uploadBytes(ref(storage, refFile), file )
-            .then((result) =>{
-                console.log("arquivo enviado com sucesso "+result)
-                getDownloadURL(ref(storage, refFile))
-                .then((url) =>{
-                    console.log("url: "+ url)
-                    
-                        updateDoc(doc(db, "vacinas", idVacina), {
-                            nome : getNome(),
-                            data_vacinacao : getDataVacinacao() ,
-                            dose : getDose(),
-                            data_proxima_dose : getDataProxVac(),
-                            comprovante_vacina : url,
-                            id_usuario : getIdUser()
-
-                            
+        if(idVacina == "1"){
+            const comp = "compr"
+            const refFile = "imagens/"+comp+"_"+getNome()+"_"+getDose()+".jpg"
+    
+                uploadBytes(ref(storage, refFile), file )
+                .then((result) =>{
+                    console.log("arquivo enviado com sucesso "+result)
+                    getDownloadURL(ref(storage, refFile))
+                    .then((url) =>{
+                        console.log("url: "+ url)
                         
-                
-                
+                            addDoc(collection(db, "vacinas"), {
+                                nome : getNome(),
+                                data_vacinacao : getDataVacinacao() ,
+                                dose : getDose(),
+                                data_proxima_dose : getDataProxVac(),
+                                comprovante_vacina : url,
+                                id_usuario : getIdUser()
+    
+                            })
+                            .then( (result) =>{
+                                console.log(JSON.stringify(result))
+                                window.location.href= "./home.html";
+    
+                            })
+                            .catch( (error) => {
+                                console.log("erro ao persistir dados: "+error)
+                            })
+    
                         })
-                        .then( (result) =>{
-                            console.log(JSON.stringify(result))
-                            window.location.href= "./home.html";
+                    .catch((erro) => {
+                        console.log("erro ao obter url "+ erro)
+    
+                    })
+    
+    
+                })
+                .catch((erroup) =>{
+                    console.log("erro ao enviar arquivo "+erroup)
+                })
+    
+    
+    
+        }
+
+
+
+        if(idVacina != "1"){
+            const comp = "compr"
+            const refFile = "imagens/"+comp+"_"+getNome()+"_"+getDose()+".jpg"
+
+                uploadBytes(ref(storage, refFile), file )
+                .then((result) =>{
+                    console.log("arquivo enviado com sucesso "+result)
+                    getDownloadURL(ref(storage, refFile))
+                    .then((url) =>{
+                        console.log("url: "+ url)
+                        
+                            updateDoc(doc(db, "vacinas", idVacina), {
+                                nome : getNome(),
+                                data_vacinacao : getDataVacinacao() ,
+                                dose : getDose(),
+                                data_proxima_dose : getDataProxVac(),
+                                comprovante_vacina : url,
+                                id_usuario : getIdUser()
+
+                                
+                            
+                    
+                    
+                            })
+                            .then( (result) =>{
+                                console.log(JSON.stringify(result))
+                                window.location.href= "./home.html";
+
+                            })
+                            .catch( (error) => {
+                                console.log("erro ao persistir dados: "+error)
+                            })
 
                         })
-                        .catch( (error) => {
-                            console.log("erro ao persistir dados: "+error)
-                        })
+                    .catch((erro) => {
+                        console.log("erro ao obter url "+ erro)
 
                     })
-                .catch((erro) => {
-                    console.log("erro ao obter url "+ erro)
+
 
                 })
-
-
-            })
-            .catch((erroup) =>{
-                console.log("erro ao enviar arquivo "+erroup)
-            })
-
-    }else{
-
-        const comp = "compr"
-        const refFile = "imagens/"+comp+"_"+getNome()+"_"+getDose()+".jpg"
-
-            uploadBytes(ref(storage, refFile), file )
-            .then((result) =>{
-                console.log("arquivo enviado com sucesso "+result)
-                getDownloadURL(ref(storage, refFile))
-                .then((url) =>{
-                    console.log("url: "+ url)
-                    
-                        addDoc(collection(db, "vacinas"), {
-                            nome : getNome(),
-                            data_vacinacao : getDataVacinacao() ,
-                            dose : getDose(),
-                            data_proxima_dose : getDataProxVac(),
-                            comprovante_vacina : url,
-                            id_usuario : getIdUser()
-
-                            
-                        
-                
-                
-                        })
-                        .then( (result) =>{
-                            console.log(JSON.stringify(result))
-                            window.location.href= "./home.html";
-
-                        })
-                        .catch( (error) => {
-                            console.log("erro ao persistir dados: "+error)
-                        })
-
-                    })
-                .catch((erro) => {
-                    console.log("erro ao obter url "+ erro)
-
+                .catch((erroup) =>{
+                    console.log("erro ao enviar arquivo "+erroup)
                 })
 
-
-            })
-            .catch((erroup) =>{
-                console.log("erro ao enviar arquivo "+erroup)
-            })
-
-
-
-
-    }
+        }
 
     
 
